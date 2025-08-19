@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Creative Music Player</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- 🌈 Background Effects -->
+  <div class="background">
+    <div class="notes">
+      <span>🎵</span>
+      <span>🎶</span>
+      <span>🎵</span>
+      <span>🎶</span>
+    </div>
+    <div class="vinyl"></div>
+  </div>
+
+  <!-- 🎧 Music Player -->
+  <div class="container">
+    <div class="music-player">
+      <input type="file" id="file-upload" multiple accept="audio/*" />
+
+      <div class="controls">
+        <button id="prev">⏮️</button>
+        <button id="play">▶️</button>
+        <button id="next">⏭️</button>
+        <input type="range" id="volume" min="0" max="1" step="0.1">
+      </div>
+
+      <div class="info" id="track-info">No Track Playing</div>
+
+      <audio id="audio-player" controls hidden></audio>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

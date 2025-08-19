@@ -1,0 +1,139 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  font-family: 'Segoe UI', sans-serif;
+  overflow: hidden;
+}
+
+/* 🌈 Animated Gradient Background */
+.background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+  z-index: -2;
+}
+
+/* 🎵 Floating Notes */
+.notes span {
+  position: absolute;
+  font-size: 2rem;
+  opacity: 0.5;
+  color: white;
+  animation: floatNotes 10s linear infinite;
+}
+
+.notes span:nth-child(1) { left: 10%; animation-delay: 0s; }
+.notes span:nth-child(2) { left: 30%; animation-delay: 2s; }
+.notes span:nth-child(3) { left: 60%; animation-delay: 4s; }
+.notes span:nth-child(4) { left: 80%; animation-delay: 6s; }
+
+@keyframes floatNotes {
+  0%   { top: 100%; transform: rotate(0deg); opacity: 0; }
+  50%  { opacity: 1; }
+  100% { top: -10%; transform: rotate(360deg); opacity: 0; }
+}
+
+/* 💿 Vinyl Record (spinning animation) */
+.vinyl {
+  position: absolute;
+  bottom: 50px;
+  right: 50px;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, #444 20%, #111 60%, #000 100%);
+  box-shadow: 0 0 30px rgba(255,255,255,0.1);
+  animation: spin 6s linear infinite;
+  z-index: -1;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* 🌈 Background Animation */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* 🔲 Centering Container */
+.container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 🎧 Music Player Styling */
+.music-player {
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  color: white;
+  text-align: center;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+  width: 320px;
+  transition: all 0.3s ease-in-out;
+  z-index: 1;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 12px;
+}
+
+.controls button {
+  font-size: 1.6rem;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+.controls button:hover {
+  transform: scale(1.2);
+}
+
+#volume {
+  width: 100px;
+}
+
+.info {
+  font-size: 14px;
+  opacity: 0.9;
+  margin-top: 8px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#file-upload {
+  position: absolute;
+  top: -9999px;
+}
+
+.music-player::before {
+  content: "Click to upload music";
+  font-size: 13px;
+  color: #ddd;
+  display: block;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
